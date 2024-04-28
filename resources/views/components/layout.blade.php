@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Home page - {{config('app.name')}}</title>
+    <title>{{ config('app.name') }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -21,10 +21,10 @@
                         </div>
                         <div class="hidden md:block">
                             <div class="ml-10 flex items-baseline space-x-4">
-                                    <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-                                    <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
-                                    <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
-                                </div>
+                                <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
+                                <x-nav-link href="/jobs" :active="request()->is('about')">Jobs</x-nav-link>
+                                <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+                            </div>
                         </div>
                     </div>
                     <div class="hidden md:block">
@@ -49,8 +49,7 @@
                                         <span class="absolute -inset-1.5"></span>
                                         <span class="sr-only">Open user menu</span>
                                         <img class="h-8 w-8 rounded-full"
-                                            src="https://laracasts.com/images/lary-ai-face.svg"
-                                            alt="">
+                                            src="https://laracasts.com/images/lary-ai-face.svg" alt="">
                                     </button>
                                 </div>
                             </div>
@@ -93,8 +92,7 @@
                 <div class="border-t border-gray-700 pb-3 pt-4">
                     <div class="flex items-center px-5">
                         <div class="flex-shrink-0">
-                            <img class="h-10 w-10 rounded-full"
-                                src="https://laracasts.com/images/lary-ai-face.svg"
+                            <img class="h-10 w-10 rounded-full" src="https://laracasts.com/images/lary-ai-face.svg"
                                 alt="">
                         </div>
                         <div class="ml-3">
@@ -123,7 +121,7 @@
         </header>
         <main>
             <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-                {{$slot}}
+                {{ $slot }}
             </div>
         </main>
     </div>
