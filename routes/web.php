@@ -8,15 +8,15 @@ Route::get('/', function () {
 });
 
 Route::get('/jobs', function () {
-    return view('jobs', [
-        'jobs' => Job::all(),
+    return view('jobs', [ 
+        'jobs' => Job::with('employer')->get(),
     ]);
 });
 
 Route::get('/jobs/{id}', function ($id) {
 
 
-    return view('job', [
+    return view('job', [ 
         'job' => Job::find($id),
     ]);
 });
