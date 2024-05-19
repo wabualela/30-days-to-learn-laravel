@@ -29,9 +29,18 @@
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-4 flex items-center md:ml-6">
+                            @auth
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Log
+                                        Out</button>
+                                </form>
+                            @endauth
                             @guest
-                                <x-nav-link :active="request()->routeIs('login.create')" :href="route('login.create')">Login</x-nav-link>
-                                <x-nav-link :active="request()->routeIs('register.create')" :href="route('register.create')">Register</x-nav-link>
+                                <x-nav-link :active="request()->routeIs('login')" :href="route('login')">Login</x-nav-link>
+                                <x-nav-link :active="request()->routeIs('register')" :href="route('register')">Register</x-nav-link>
                             @endguest
                         </div>
                     </div>

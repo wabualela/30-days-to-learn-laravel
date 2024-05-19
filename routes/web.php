@@ -11,15 +11,17 @@ Route::resource('jobs', App\Http\Controllers\JobController::class);
 
 // Auth routes
 Route::get('/register', [ App\Http\Controllers\RegisteredUserController::class, 'create' ])
-    ->name('register.create');
+    ->name('register');
 
 Route::post('/register', [ App\Http\Controllers\RegisteredUserController::class, 'store' ])
     ->name('register.store');
 
 Route::get('/login', [ App\Http\Controllers\AuthenticatedUserController::class, 'create' ])
-    ->name('login.create');
+    ->name('login');
 
 Route::post('/login', [ App\Http\Controllers\AuthenticatedUserController::class, 'store' ])
     ->name('login.store');
 
+Route::delete('/logout', [ App\Http\Controllers\AuthenticatedUserController::class, 'destroy' ])
+    ->name('logout');
 
