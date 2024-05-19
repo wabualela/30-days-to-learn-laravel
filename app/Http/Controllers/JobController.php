@@ -45,9 +45,7 @@ class JobController extends Controller
      */
     public function show(Job $job)
     {
-        return view('jobs.show', [ 
-            'job' => $job,
-        ]);
+        return view('jobs.show', [ 'job' => $job]);
     }
 
     /**
@@ -69,6 +67,8 @@ class JobController extends Controller
             'title'  => $request->title,
             'salary' => $request->salary,
         ]);
+
+        return view('jobs.show', [ 'job' => $job]);
     }
 
     /**
