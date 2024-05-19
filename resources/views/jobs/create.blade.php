@@ -15,16 +15,16 @@
                         <x-form-label for="title">Title</x-form-label>
                         <x-form-field class="mt-2">
                             <x-form-input name="title" id="title" placeholder="Full Stack Developer"
-                                value="{{ old('title') }}" />
+                                :value="old('title')"  autofocus/>
                             <x-form-error name="title" />
                         </x-form-field>
                     </div>
                     <div class="sm:col-span-4">
                         <x-form-label for="salary">Salary</x-form-label>
                         <x-form-field class="mt-2">
-                            <x-form-input name="salary" id="salary" placeholder="Full Stack Developer"
-                                value="{{ old('salary') }}" />
-                            <x-form-error name="salary" />
+                            <x-form-input name="salary" id="salary" placeholder="Full Stack Developer" autocomplete="transaction-amount"
+                                :value="old('salary')" />
+                                <x-form-error name="salary" />
                         </x-form-field>
                     </div>
                 </div>
