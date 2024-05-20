@@ -6,10 +6,12 @@
     <h2 class="font-bold text-lg">{{ $job->title }}</h2>
 
     <p>
-        This job pays ${{ $job->salary}} per year.
+        This job pays ${{ $job->salary }} per year.
     </p>
 
-    <p class="mt-6">
-        <x-btn href="/jobs/{{$job->id}}/edit">Edit Job</x-btn>
-    </p>
+    @can('update-job', $job)
+        <p class="mt-6">
+            <x-btn href="/jobs/{{ $job->id }}/edit">Edit Job</x-btn>
+        </p>
+    @endcan
 </x-layout>
