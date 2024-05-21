@@ -30,7 +30,7 @@ Route::controller(App\Http\Controllers\JobController::class)->group(function () 
         Route::get('/jobs/{job}/edit', 'edit')
             ->name('jobs.edit')
             ->can('update', 'job');
-            
+
         Route::patch('/jobs/{job}', 'update')
             ->name('jobs.update')
             ->can('update', 'job');

@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreJobRequest;
 use App\Http\Requests\UpdateJobRequest;
+use App\Mail\JobPosted;
 use App\Models\Job;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Mail;
 
 class JobController extends Controller
 {
@@ -34,11 +36,14 @@ class JobController extends Controller
      */
     public function store(StoreJobRequest $request)
     {
-        Job::create([ 
+        $job = Job::create([ 
             'title'       => $request->title,
             'salary'      => $request->salary,
             'employer_id' => 1,
         ]);
+
+        Mail::to($job->employer->user)
+            ->send(new JobPosted($job));
 
         return redirect('/jobs');
     }
@@ -55,7 +60,7 @@ class JobController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Job $job)
-    { 
+    {
         return view('jobs.edit', [ 
             'job' => $job,
         ]);
