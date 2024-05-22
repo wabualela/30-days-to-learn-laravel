@@ -6,6 +6,8 @@ Route::view('/', 'home')
     ->name('home');
 Route::view('/contact', 'contact')
     ->name('contact');
+Route::view('/about', 'contact')
+    ->name('contact');
 
 Route::resource('jobs', App\Http\Controllers\JobController::class)
     ->except([ 'index', 'show' ])
@@ -55,4 +57,3 @@ Route::post('/login', [ App\Http\Controllers\AuthenticatedUserController::class,
 
 Route::delete('/logout', [ App\Http\Controllers\AuthenticatedUserController::class, 'destroy' ])
     ->name('logout');
-

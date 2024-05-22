@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{{ config('app.name') }}</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    @vite('resources/js/app.js')
 </head>
 
 <body class="h-full">
@@ -71,11 +72,12 @@
             <div class="md:hidden" id="mobile-menu">
                 <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                    <a href="/" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+                    <a href="{{ route('home') }}"
+                        class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
                         aria-current="page">Home</a>
-                    <a href="/about"
-                        class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">About</a>
-                    <a href="/contact"
+                    <a href="{{ route('jobs.index') }}"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Job</a>
+                    <a href="{{ route('contact') }}"
                         class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact</a>
                 </div>
                 <div class="border-t border-gray-700 pb-3 pt-4">
